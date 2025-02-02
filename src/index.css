@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes rocketFloat {
+  0% {
+    transform: translateY(0px) rotate(15deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(15deg);
+  }
+}
+
+.logo-rocket {
+  animation: rocketFloat 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes titleFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+}
+
+.title-animation {
+  animation: titleFloat 4s ease-in-out infinite;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  animation: modalAppear 0.3s ease-out forwards;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
