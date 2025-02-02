@@ -353,7 +353,7 @@ Make it production-ready with all necessary meta tags and SEO optimizations.`;
             ></div>
             <div className="modal-content bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-2xl relative z-10 max-w-md w-full mx-4">
               <button
-                onClick={() => setShowTwitterModal(false)}
+                onClick={() => setShowTwitterModal(true)}
                 className="absolute top-4 right-4 text-white/60 hover:text-white"
               >
                 <X className="w-6 h-6" />
