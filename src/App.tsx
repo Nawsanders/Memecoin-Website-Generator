@@ -349,7 +349,7 @@ Make it production-ready with all necessary meta tags and SEO optimizations.`;
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div
               className="modal-backdrop absolute inset-0"
-              onClick={() => setShowTwitterModal(false)}
+              onClick={() => setShowTwitterModal(true)}
             ></div>
             <div className="modal-content bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-2xl relative z-10 max-w-md w-full mx-4">
               <button
