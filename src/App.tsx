@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Rocket,
   Coins,
@@ -48,6 +48,9 @@ function App() {
 
   const [copied, setCopied] = useState(false);
   const [showTwitterModal, setShowTwitterModal] = useState(false);
+  const [hasFollowed, setHasFollowed] = useState(() => {
+    return localStorage.getItem('hasFollowedTwitter') === 'true';
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -110,11 +113,17 @@ Make it production-ready with all necessary meta tags and SEO optimizations.`;
   };
 
   const handleGenerateClick = () => {
-    setShowTwitterModal(true);
+    if (!hasFollowed) {
+      setShowTwitterModal(true);
+    } else {
+      copyToClipboard();
+    }
   };
 
   const handleTwitterFollow = () => {
     window.open('https://x.com/intent/user?screen_name=Nawsanders', '_blank');
+    localStorage.setItem('hasFollowedTwitter', 'true');
+    setHasFollowed(true);
     setTimeout(() => {
       setShowTwitterModal(false);
       copyToClipboard();
@@ -345,7 +354,7 @@ Make it production-ready with all necessary meta tags and SEO optimizations.`;
         </div>
 
         {/* Twitter Follow Modal */}
-        {showTwitterModal && (
+        {showTwitterModal && !hasFollowed && (
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div
               className="modal-backdrop absolute inset-0"
